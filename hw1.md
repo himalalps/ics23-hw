@@ -53,7 +53,15 @@ int main(void) {
 
 ## T4
 
+Write the decimal equivalents for the IEEE floating point number below.
+
+0 10001011 00000000001000000001000
+
 ## T5
+
+What is the **smallest number** that can be represented in IEEE floating point format with 32 bits regardless of infinity? What about the **smallest positive number**? (Answer in binary)
+
+> We define a number is smaller as it is on the lefter side of the number axis.
 
 ## T6
 
