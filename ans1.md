@@ -1,4 +1,4 @@
-# Answer X
+# Answer 1
 
 ## A1
 
@@ -24,7 +24,40 @@ $10001011_B = 139_D$
 
 ## A6
 
+```c
+#include <limits.h>
+#include <stdio.h>
+union my_union {
+    int a;
+    float b;
+};
+int main(void) {
+    union my_union t;
+    for (int i = INT_MIN; i < INT_MAX; i++) {
+        t.b = i;
+        if (t.a == i) {
+            printf("%d\n", i);
+        }
+    }
+    return 0;
+}
+```
+
+运行程序，得到结果-834214802, 0, 1318926965.
+
 ## A7
+
+1. 答案如下
+
+```c
+void swap(int *a, int *b) {
+    *a = *a ^ *b;
+    *b = *a ^ *b;
+    *a = *a ^ *b;
+}
+```
+
+2. 如果`swap`函数中的`a`和`b`指向相同的地址，则第一行异或后该地址就会变成`0`，第二行异或会使该地址变成`1`，第三行再异或就得到`0`，也就是如果`a == b`时，会使地址上的值变成`0`，而不再是原来数组里的值。要改正的话只需在`swap`中或是`sort`中对要交换的两个指针判断是否相等即可。
 
 ## A8
 

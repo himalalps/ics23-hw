@@ -65,7 +65,39 @@ What is the **smallest number** that can be represented in IEEE floating point f
 
 ## T6
 
+Can you list all the integers whose IEEE floating point representations are exactly the same as their 2's complement integer representations? (Answer in decimal)
+
+> Hint: You can write a program to find the answer. Type `float` in C language follows the rule of 32bits IEEE floating point format.
+
 ## T7
+
+The code below uses three XOR operation to swap two integers.
+
+```c
+void swap(int *a, int *b) {
+    __ = __ ^ __;
+    __ = __ ^ __;
+    __ = __ ^ __;
+}
+```
+
+1. Fill in the blanks to complete the code.
+2. Is there anything wrong to use the `swap` function in the sorting function below? If so, how can you fix it?
+
+```c
+void sort(int *a, int n) {
+    // sort a[0] ~ a[n - 1]
+    for (int i = 0; i < n - 1; i++) {
+        int min = i;
+        for (int j = i; j < n; j++) {
+            if (a[j] < a[min]) {
+                min = j;
+            }
+        }
+        swap(a + i, a + min);
+    }
+}
+```
 
 ## T8
 
