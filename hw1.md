@@ -101,7 +101,39 @@ void sort(int *a, int n) {
 
 ## T8
 
+Is there a negative integer that has identical 2's complement representation and original code in binary (8-bit)? If so, what is it? (Answer in decimal)
+
 ## T9
+
+We've got 2 blackboxes, each of which takes two numbers as input and produces a number as the output. The first one is capable of adding, while the second one is capable of multiplying. (As shown in Figure 1.10, (a) and (b)) We can combine these blackboxes to calculate $(m+n)\times p$. (As shown in Figure 1.10, (c))
+
+![Image](hw1/T9.png)
+
+<center>Figure 1.10, P20</center>
+
+You're required to draw circuits that can calculate the following expressions:
+
+1. $y=kx+b$
+2. $p=(m+n)(m-n)$
+3. The length of the longest edge of a **right triangle** (noted as $c$), given the lengths of the other two edges (noted as $a, b$).
+4. The weighted average of:
+
+    | Value | Weight |
+    | ----- | ------ |
+    | $v_1$ |  $w_1$ |
+    | $v_2$ |  $w_2$ |
+
+> You can draw the circuits on a physical paper, on a tablet app, or, preferably, on flowchart makers like https://app.diagrams.net/ .
 
 ## T10
 
+We'd like to use binary to represent the following characters:
+
+- `A` to `Z`
+- `a` to `z`
+- `0` to `9`
+- 2 special characters: ` ` (space) and `.`
+
+1. How many bits do we need to represent a single character?
+2. How many bits do we need to represent a string of $N$ characters?
+3. Assume that we use 0 to represent `A`, 1 to represent `B`, and so on. So we use 63 to represent `.`. What is the binary representation of `Hello World.`?
