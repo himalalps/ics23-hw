@@ -82,7 +82,7 @@ void swap(int *a, int *b) {
 
 ## A9
 
-TBD
+![hw1T8](./hw1/hw1T8.jpg)
 
 ## A10
 

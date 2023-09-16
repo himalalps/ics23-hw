@@ -116,7 +116,7 @@ You're required to draw circuits that can calculate the following expressions:
 1. $y=kx+b$
 2. $p=(m+n)(m-n)$
 3. The length of the longest edge of a **right triangle** (noted as $c$), given the lengths of the other two edges (noted as $a, b$).
-4. The weighted average of:
+4. The weighted average $m$ of:
 
     | Value | Weight |
     | ----- | ------ |
