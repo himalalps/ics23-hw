@@ -16,6 +16,10 @@
 
 ## T3
 
+Is there a negative integer that has identical 2's complement representation and original code in binary (8-bit)? If so, what is it? (Answer in decimal)
+
+## T4
+
 The C code below takes two integers and prints out whether the first number is less than the second one. (The numbers given are guaranteed to be in the range of `int`.)
 
 ```c
@@ -51,25 +55,25 @@ int main(void) {
 }
 ```
 
-## T4
+## T5
 
 Write the decimal equivalents for the IEEE floating point number below.
 
 0 10001011 00000000001000000001000
 
-## T5
+## T6
 
 What is the **smallest number** that can be represented in IEEE floating point format with 32 bits regardless of infinity? What about the **smallest positive number**? (Answer in binary)
 
 > We define a number is smaller as it is on the lefter side of the number axis.
 
-## T6
+## T7
 
 Can you list all the integers whose IEEE floating point representations are exactly the same as their 2's complement integer representations? (Answer in decimal)
 
 > Hint: You can write a program to find the answer. Type `float` in C language follows the rule of 32bits IEEE floating point format.
 
-## T7
+## T8
 
 The code below uses three XOR operation to swap two integers.
 
@@ -99,10 +103,6 @@ void sort(int *a, int n) {
 }
 ```
 
-## T8
-
-Is there a negative integer that has identical 2's complement representation and original code in binary (8-bit)? If so, what is it? (Answer in decimal)
-
 ## T9
 
 We've got 2 blackboxes, each of which takes two numbers as input and produces a number as the output. The first one is capable of adding, while the second one is capable of multiplying. (As shown in Figure 1.10, (a) and (b)) We can combine these blackboxes to calculate $(m+n)\times p$. (As shown in Figure 1.10, (c))
@@ -120,8 +120,8 @@ You're required to draw circuits that can calculate the following expressions:
 
     | Value | Weight |
     | ----- | ------ |
-    | $v_1$ |  $w_1$ |
-    | $v_2$ |  $w_2$ |
+    | $v_1$ | $w_1$  |
+    | $v_2$ | $w_2$  |
 
 > You can draw the circuits on a physical paper, on a tablet app, or, preferably, on flowchart makers like https://app.diagrams.net/ .
 
