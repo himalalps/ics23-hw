@@ -23,6 +23,12 @@ Prove that NAND is logically complete.
 
 ## T3
 
+Recall that the adder was built with individual **“slices”** that produced a sum bit and a carry-out bit based on the two operand bits A and B and the carry-in bit. We called such an element a full adder. Suppose we have a 3-to-8 decoder and two 6-input OR gates, as shown below. Can we connect them so that we have a full adder? If so, please do.
+
+(Hint: If an input to an OR gate is not needed, we can simply put an input 0 on it and it will have no effect on anything. For example, see the following figure.)
+
+<img src="hw2/hw2-3.png" style="zoom:50%;" />
+
 ## T4
 
 ## T5
