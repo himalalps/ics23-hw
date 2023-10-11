@@ -31,6 +31,17 @@ Recall that the adder was built with individual **“slices”** that produced a
 
 ## T4
 
+Having designed a binary adder, you are now ready to design a 2-bit by 2-bit unsigned binary multiplier. The multiplier takes two 2-bit inputs A[1:0] and B[1:0] and produces an output Y, which is the product of A[1:0] and B[1:0]. The standard notation for this is:
+
+$$Y = A10\cdot B10$$
+
+1. What is the maximum value that can be represented in two bits for A(A[1:0])?
+2. What is the maximum value that can be represented in two bits for B(B[1:0])?
+3. What is the maximum possible value of Y?
+4. What is the number of required bits to represent the maximum value of Y?
+5. Write a truth table for the multiplier described above. You will have a four-input truth table with the inputs being A[1], A[0], B[1], and B[0].
+6. Implement the third bit of output, Y[2] from the truth table using only AND, OR, and NOT gates. (You can just write the equation for Y[2] in terms of A[1], A[0], B[1], and B[0].)
+
 ## T5
 
 ## T6
