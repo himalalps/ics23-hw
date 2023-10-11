@@ -19,6 +19,8 @@ Transistor circuit shown below produces the accompanying truth table. The inputs
 
 ## T2
 
+Prove that NAND is logically complete.
+
 ## T3
 
 ## T4
