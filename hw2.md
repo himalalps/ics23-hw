@@ -44,9 +44,38 @@ $$Y = A10\cdot B10$$
 
 ## T5
 
+晶体管 (CMOS)、N 进制、补码、位运算、浮点数、晶体管门、加法/减法器、锁存器、寄存器、内存、真值表、组合/时序逻辑、有限状态机
+
+Design a **XOR** gate with NAND gates.
+
+| $a$  | $b$  | $a\text{ XOR }b$ |
+| ---- | ---- | ---------------- |
+| 0    | 0    | 0                |
+| 0    | 1    | 1                |
+| 1    | 0    | 1                |
+| 1    | 1    | 0                |
+
 ## T6
 
+Here's an incomplete FSM that, when pattern `madam` occurs, produces an output `1`.
+
+For example, given string `madamadam`, it'll produce `000010001`.
+
+Your job is to:
+
+1. **Complete** the state diagram.
+2. Tell the **minimum number of latches** that are needed in order to implement this FSM.
+
+> Hint: Why do we need latches in sequential logic?
+
+<img src="hw2/hw2-6.jpg" style="zoom:50%;" />
+
 ## T7
+
+Here's a memory that needs $a$ bit to represent its address, and its addressability is $b$ bit.
+
+1. How much is the memory's **address space** at most?
+2. How many bits can the memory store at most?
 
 ## T8
 

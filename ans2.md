@@ -75,9 +75,18 @@ $$\rm a\ OR\ b\Leftrightarrow (a\ NAND\ a)\ NAND\ (b\ NAND\ b)$$
 
 ## A5
 
+![hw2-5](./assets/hw2-5.webp)
+
 ## A6
 
+1. ![hw2-6-ans](./assets/hw2-6-ans.jpg)
+
+2. 6 states -> 3 bits -> 3 latches
+
 ## A7
+
+1. $2^a$
+2. $2^a\times b$
 
 ## A8
 
