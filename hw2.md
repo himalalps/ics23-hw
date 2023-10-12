@@ -104,3 +104,14 @@ We want to make a state machine for the scoreboard for an land occupation compet
 
 ## T10
 
+The dormitory where Zhang San resides has a rule: the power is cut off at 11 p.m. on weekdays and restored at 6 a.m., while during holidays, the power is cut off at 12 a.m. and restored at 6:30 a.m. Due to concerns about sudden damage to his personal server, which he assembled using second-hand hardware, Zhang San has sought your help to design a device that can automatically control the server's power supply. Your task is to design a logic circuit that will automatically shut down the server when the output Z is 1. The circuit will receive four input variables (A, B, C, D) that answer four different yes/no questions (1=yes, 0=no):
+
+A <- It is 10:50 p.m.?
+
+B <- It is 11:50 p.m.?
+
+C <- Today is hoilday?
+
+D <- Server is already down?
+
+Zhang San wants this device send poweroff command to server only when server is on. This device send poweroff command to server if it's the workday and it's 10:50 p.m.. This device should send poweroff command to server if it's the hoilday and it's 11:50 p.m.. Write the truth table and draw a gate-level diagram that performs this logic.
