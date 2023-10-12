@@ -44,8 +44,6 @@ $$Y = A10\cdot B10$$
 
 ## T5
 
-晶体管 (CMOS)、N 进制、补码、位运算、浮点数、晶体管门、加法/减法器、锁存器、寄存器、内存、真值表、组合/时序逻辑、有限状态机
-
 Design a **XOR** gate with NAND gates.
 
 | $a$  | $b$  | $a\text{ XOR }b$ |
