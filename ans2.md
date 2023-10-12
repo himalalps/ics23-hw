@@ -90,6 +90,15 @@ $$\rm a\ OR\ b\Leftrightarrow (a\ NAND\ a)\ NAND\ (b\ NAND\ b)$$
 
 ## A8
 
+1. 为了可以写入第一个位置，`A[1:0]`应当为00，同时为了写入`WE`应当为1
+2. 为了将寻址能力提升到`k bit`，则需要将每个位置存储的bits提升为`k`位，对应则是在每个位置添加`k-3`个门控D锁存器。
+3. 考虑能寻址至少257个地址的PC宽度为9位，为了使得内存的位置数量可以将PC的的寻址空间填满，则应当有总共512个内存位置，对应地址线应当增加至9条。由于在该问题中单个位置的bit数未发生改变，故寻址能力不变。
+
 ## A9
+
+1. $\log_2(100 * 100 * 4 * 4 * 181 * 100^8) \approx 77.9384077848$ ，即最少使用78个bit存储
+2. $$7 * 2\mathrm{bits}\\ 2 * 2\mathrm{bits}\\ 2\mathrm{bits\ for\ minutes}, 6\mathrm{bits\  for \ seconds}\\ 7 * 8\mathrm{bits}$$
+
+3. The assignments in (2) are easier to decode
 
 ## A10

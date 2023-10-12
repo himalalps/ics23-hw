@@ -77,7 +77,30 @@ Here's a memory that needs $a$ bit to represent its address, and its addressabil
 
 ## T8
 
+Using figure 3.21 on page 78 in the book, the diagram of the $2^2$-by-$3$-bit memory
+
+![2^2-by-3-bit-memory](./hw2/hw2-8.png)
+
+1. To write to the first memory location, what must the values of `A[1:0]` and `WE` be?
+
+2. To increase the addressability of the memory in Figure 3.21 to `k bit` (k > 3), please describe what you should change in text.
+
+3. Suppose the width (in bits) of the program counter is the minimum number of bits needed to address 257 locations. How many address line should be added into the memory in Figure 3.21 if we want to make full use of this PC's address space? What would the addressability of the memory be after this change was made.
+
 ## T9
+
+We want to make a state machine for the scoreboard for an land occupation competition. The following infomation is required to determine the state of the competition:
+
+| state              | possible value                                           |
+| ------------------ | -------------------------------------------------------- |
+| occupation ratio   | 0~99 for 2 teams                                         |
+| score              | 0~3 for 2 teams                                          |
+| time remaining     | any time from 0:00 to 3:00, where m:s (minutes, seconds) |
+| skill charge ratio | 0~100 for 8 players                                      |
+
+1. What is the minimum number of bits that we need to use to store the state required?
+2. Suppose we make a separate logic circuit for each of the four elements on the scoreboard, how many bits would it then take to store the state of the scoreboard?
+3. Which one might be the better method to sepcify the state, why?
 
 ## T10
 
