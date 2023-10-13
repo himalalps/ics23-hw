@@ -46,14 +46,27 @@ $$Y = A10\cdot B10$$
 
 Design a **XOR** gate with NAND gates.
 
-| $a$  | $b$  | $a\text{ XOR }b$ |
-| ---- | ---- | ---------------- |
-| 0    | 0    | 0                |
-| 0    | 1    | 1                |
-| 1    | 0    | 1                |
-| 1    | 1    | 0                |
+|  $a$  |  $b$  | $a\text{ XOR }b$ |
+| :---: | :---: | :--------------: |
+|   0   |   0   |        0         |
+|   0   |   1   |        1         |
+|   1   |   0   |        1         |
+|   1   |   1   |        0         |
 
 ## T6
+
+The dormitory where Zhang San resides has a rule: the power is cut off at 11 p.m. on weekdays and restored at 6 a.m., while during holidays, the power is cut off at 12 a.m. and restored at 6:30 a.m. Due to concerns about sudden damage to his personal server, which he assembled using second-hand hardware, Zhang San has sought your help to design a device that can automatically control the server's power supply. Your task is to design a logic circuit that will automatically shut down the server when the output Z is 1. The circuit will receive four input variables (A, B, C, D) that answer four different yes/no questions. (1=yes, 0=no)
+
+| variable |        question         |
+| :------: | :---------------------: |
+|    A     |    Is it 10:50 p.m.?    |
+|    B     |    Is it 11:50 p.m.?    |
+|    C     |    Is today hoilday?    |
+|    D     | Is Server already down? |
+
+Zhang San wants this device send poweroff command to server only when server is on. This device send poweroff command to server if it's the workday and it's 10:50 p.m. This device should send poweroff command to server if it's the hoilday and it's 11:50 p.m. Write the truth table and draw a gate-level diagram that performs this logic.
+
+## T7
 
 Here's an incomplete FSM that, when pattern `madam` occurs, produces an output `1`.
 
@@ -66,52 +79,38 @@ Your job is to:
 
 > Hint: Why do we need latches in sequential logic?
 
-<img src="hw2/hw2-6.jpg" style="zoom:50%;" />
+<img src="hw2/hw2-7.jpg" style="zoom:50%;" />
 
-## T7
+## T8
 
-Here's a memory that needs $a$ bit to represent its address, and its addressability is $b$ bit.
+There is a memory that needs $a$ bit to represent its address, and its addressability is $b$ bit.
 
 1. How much is the memory's **address space** at most?
 2. How many bits can the memory store at most?
 
-## T8
-
-Using figure 3.21 on page 78 in the book, the diagram of the $2^2$-by-$3$-bit memory
-
-![2^2-by-3-bit-memory](./hw2/hw2-8.png)
-
-1. To write to the first memory location, what must the values of `A[1:0]` and `WE` be?
-
-2. To increase the addressability of the memory in Figure 3.21 to `k bit` (k > 3), please describe what you should change in text.
-
-3. Suppose the width (in bits) of the program counter is the minimum number of bits needed to address 257 locations. How many address line should be added into the memory in Figure 3.21 if we want to make full use of this PC's address space? What would the addressability of the memory be after this change was made.
-
 ## T9
 
-We want to make a state machine for the scoreboard for an land occupation competition. The following infomation is required to determine the state of the competition:
+The figure below is the diagram of the $2^2$-by-$3$-bit memory on page 78 of the textbook,.
 
-| state              | possible value                                           |
-| ------------------ | -------------------------------------------------------- |
-| occupation ratio   | 0~99 for 2 teams                                         |
-| score              | 0~3 for 2 teams                                          |
-| time remaining     | any time from 0:00 to 3:00, where m:s (minutes, seconds) |
-| skill charge ratio | 0~100 for 8 players                                      |
+![2^2-by-3-bit-memory](./hw2/hw2-9.png)
 
-1. What is the minimum number of bits that we need to use to store the state required?
-2. Suppose we make a separate logic circuit for each of the four elements on the scoreboard, how many bits would it then take to store the state of the scoreboard?
-3. Which one might be the better method to sepcify the state, why?
+1. To write data into the first memory location, what must the values of `A[1:0]` and `WE` be?
+
+2. To increase the addressability of the memory to `k bit` (k > 3), please describe in text what you should change.
+
+3. Suppose the width (in bits) of the program counter is the minimum number of bits needed to address 257 locations. How many address line should be added into the memory in the figure if we want to make full use of this PC's address space? What would the addressability of the memory be after this change was made?
 
 ## T10
 
-The dormitory where Zhang San resides has a rule: the power is cut off at 11 p.m. on weekdays and restored at 6 a.m., while during holidays, the power is cut off at 12 a.m. and restored at 6:30 a.m. Due to concerns about sudden damage to his personal server, which he assembled using second-hand hardware, Zhang San has sought your help to design a device that can automatically control the server's power supply. Your task is to design a logic circuit that will automatically shut down the server when the output Z is 1. The circuit will receive four input variables (A, B, C, D) that answer four different yes/no questions (1=yes, 0=no):
+In a land occupation competition participated by 2 teams, with 4 players in each team, we need to keep track of the following information on the scoreboard.
 
-A <- It is 10:50 p.m.?
+|       state        |                      possible value                      |
+| :----------------: | :------------------------------------------------------: |
+|  occupation ratio  |                     0~99 for 2 teams                     |
+|       score        |                     0~3 for 2 teams                      |
+|   time remaining   | any time from 0:00 to 3:00, where m:s (minutes, seconds) |
+| skill charge ratio |                   0~100 for 8 players                    |
 
-B <- It is 11:50 p.m.?
-
-C <- Today is hoilday?
-
-D <- Server is already down?
-
-Zhang San wants this device send poweroff command to server only when server is on. This device send poweroff command to server if it's the workday and it's 10:50 p.m.. This device should send poweroff command to server if it's the hoilday and it's 11:50 p.m.. Write the truth table and draw a gate-level diagram that performs this logic.
+1. What is the minimum number of bits that we need to use to store the state required?
+2. Suppose we make four separate logic circuits for each line of the four elements on the scoreboard, how many bits would it then take to store the state of the scoreboard?
+3. Which one might be the better method to sepcify the state, why?
