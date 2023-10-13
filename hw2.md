@@ -31,9 +31,7 @@ Recall that the adder was built with individual **“slices”** that produced a
 
 ## T4
 
-Having designed a binary adder, you are now ready to design a 2-bit by 2-bit unsigned binary multiplier. The multiplier takes two 2-bit inputs A[1:0] and B[1:0] and produces an output Y, which is the product of A[1:0] and B[1:0]. The standard notation for this is:
-
-$$Y = A10\cdot B10$$
+Having designed a binary adder, you are now ready to design a 2-bit by 2-bit unsigned binary multiplier. The multiplier takes two 2-bit inputs A[1:0] and B[1:0] and produces an output Y, which is the product of A[1:0] and B[1:0].
 
 1. What is the maximum value that can be represented in two bits for A(A[1:0])?
 2. What is the maximum value that can be represented in two bits for B(B[1:0])?
