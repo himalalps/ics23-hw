@@ -55,9 +55,64 @@ Suppose we changed the LC-3 to have only four registers instead of 8. Fewer regi
 
 ## T5
 
+We've got a $2^2\text{-by-}3$ bit memory, which is **initialized to store the value 1** in every cell. The table below shows the values of the two-bit address $A$, one-bit write enable $WE$, and three-bit data-in signals $D_{in}$ during each access:
+
+| Cycle No. | $A$[1:0] | $WE$ | $D_{in}$[2:0] |
+| --------- | -------- | ---- | ------------- |
+| 1   | 0 1      | 1    | 1 0 1         |
+| 2   | 1 1      | 0    | 1 1 0         |
+| 3   | 1 0      | 1    | 0 1 0         |
+| 4   | 0 1      | 1    | 0 1 1         |
+| 5   | 1 1      | 0    | 1 0 1         |
+| 6   | 0 0      | 1    | 1 0 1         |
+| 7   | 1 1      | 1    | 1 1 0         |
+| 8   | 1 1      | 0    | 0 1 0         |
+
+You are required to fill in the values stored in each memory cell and the three data-out lines just **before the end of the eighth cycle** (those marked by question marks `?`).
+
+![t5](./hw3/hw3-t5.png)
+
 ## T6
 
+Consider a memory that we will perform five successive accesses to. The following table shows the type of each access (**R**ead (load), **W**rite (store)), and the contents of the MAR and MDR at the **completion** of the access. Note that we have shortened the addressability to 5 bits.
+
+| Operation No. | R/W  | MAR       | MDR        |
+| ------------- | ---- | --------- | ---------- |
+| 1             | W    | x\_\_\_\_ | 11110      |
+| 2             | \_   | x\_\_\_\_     | \_\_\_\_\_ |
+| 3             | W    | x\_\_\_\_     | 10\_\_\_   |
+| 4             | \_   | x\_\_\_\_     | \_\_\_\_\_ |
+| 5             | \_   | x\_\_\_\_     | \_\_\_\_\_ |
+
+<center>Operations on Memory</center>
+
+The following table show the contents of memory locations at `x4000` to `x4004` *before the first access, after the third access, and after the fifth access*. We have added a constraint to this problem in order to get one correct answer: The MDR can **ONLY** be loaded from memory as a result of a load (read) access.
+
+| Address | Before Access 1 | After Access 3 | After Access 5 |
+| ------- | --------------- | -------------- | -------------- |
+| x4000   | 01101           | \_\_\_\_0      | \_\_\_\_\_     |
+| x4001   | 11010           | \_0\_\_0       | \_\_\_\_\_     |
+| x4002   | \_1\_\_\_       | \_\_\_\_\_     | \_\_\_\_\_     |
+| x4003   | 10110           | \_\_\_\_\_     | 01101          |
+| x4004   | 11110           | 11110          | 11110          |
+
+<center>Contents of Memory locations</center>
+
+You're required to fill in the blanks.
+
 ## T7
+
+### a
+
+If a machine cycle is 5 nanoseconds (i.e., $5\times10^{-9}$ seconds), how many machine cycles occur each second?
+
+### b
+
+Suppose the computer requires an average of **eight cycles** to process each instruction, and the computer processes instructions **one at a time** from beginning to end. Then how many instructions can the computer process in 1 second?
+
+### c
+
+Modern microprocessors usually uses the **pipeline** technique to fully utilize the CPU. Pipeline is computer’s equivalent of an assembly line. Each phase of the instruction cycle is implemented as one or more separate pieces of logic. Each step in the processing of an instruction picks up where the previous step left off in the previous machine cycle. Using this feature, an instruction can be fetched from memory **every machine cycle** and handed off at the end of the machine cycle to the decoder, which performs the decoding function during the next machine cycle while the next instruction is being fetched. In short, by properly dividing an instruction into multiple phases, we can run several instructions at the same time. How many instructions can the computer process in 1 second if we apply the pipeline technique?
 
 ## T8
 
