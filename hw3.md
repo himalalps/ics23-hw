@@ -70,7 +70,7 @@ We've got a $2^2\text{-by-}3$ bit memory, which is **initialized to store the va
 
 You are required to fill in the values stored in each memory cell and the three data-out lines just **before the end of the eighth cycle** (those marked by question marks `?`).
 
-![t5](./hw3/hw3-t5.png)
+![t5](./hw3/hw3-5.png)
 
 ## T6
 

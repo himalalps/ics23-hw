@@ -75,7 +75,7 @@ $$\rm a\ OR\ b\Leftrightarrow (a\ NAND\ a)\ NAND\ (b\ NAND\ b)$$
 
 ## A5
 
-![hw2-5](./hw2/hw2-5.webp)
+![hw2-5](./hw2/hw2-5-ans.webp)
 
 ## A6
 
