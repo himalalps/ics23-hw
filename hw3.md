@@ -116,22 +116,28 @@ Modern microprocessors usually uses the **pipeline** technique to fully utilize 
 
 ## T8
 
-The LC-3 does not have an opcode for the logical function XOR. The four instruction sequence below performs the XOR of the contents of register 1 and register 2 and puts the result in register 3. Fill in the two missing instructions so that the four instruction sequence will do the job.
+The LC-3 does not have an opcode for the logical function XOR. The eight instruction sequence below performs the XOR of the contents of **register 1** and register 2 and puts the result in **register 3**. Fill in the four missing instructions so that the eight instruction sequence will do the job.
 
 ``` 
 1. 
-2. 
-3. 0101 101 111 000 010 // 7 AND 2 -> 5
-4. 0101 100 110 000 001 // 6 AND 1 -> 4
-5. 1001 001 101 111111 // (NOT 5) -> 1
+2. 1001 110 010 111111
+3. 0101 101 111 000 010 
+4. 
+5. 1001 001 101 111111 
 6. 
 7. 
-8. 1001 011 000 111111 // (NOT 0) -> 3
+8. 1001 011 000 111111 
 ```
 
-
-
 ## T9
+
+We would like to have an instruction that does nothing. Many ISAs actually have an opcode devoted to doing nothing. It is usually called NOP, for NO OPERATION. The instruction is fetched, decoded, and executed. The execution phase is to do nothing! Which of the following five instructions could be used for NOP and have the program still work correctly? For other instructions, please describe what they have done.
+
+1. 0001 010 001 1 00010
+2. 0000 111 000000000
+3. 0000 101 000000100
+4. 1001 010 111 111111
+5. 1111 0000 00100011
 
 ## T10
 
