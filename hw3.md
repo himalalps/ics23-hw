@@ -116,6 +116,21 @@ Modern microprocessors usually uses the **pipeline** technique to fully utilize 
 
 ## T8
 
+The LC-3 does not have an opcode for the logical function XOR. The four instruction sequence below performs the XOR of the contents of register 1 and register 2 and puts the result in register 3. Fill in the two missing instructions so that the four instruction sequence will do the job.
+
+``` 
+1. 
+2. 
+3. 0101 101 111 000 010 // 7 AND 2 -> 5
+4. 0101 100 110 000 001 // 6 AND 1 -> 4
+5. 1001 001 101 111111 // (NOT 5) -> 1
+6. 
+7. 
+8. 1001 011 000 111111 // (NOT 0) -> 3
+```
+
+
+
 ## T9
 
 ## T10
