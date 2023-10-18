@@ -141,3 +141,4 @@ We would like to have an instruction that does nothing. Many ISAs actually have 
 
 ## T10
 
+Please describe the limitations of the BR instruction in LC-3 and how JMP instruction addresses the issue
