@@ -38,12 +38,12 @@ Your job: In the table below, for each value of **X**, answer the question: "Doe
 ## T3
 
 After these two instructions execute:
-The next instruction to execute will be the instruction at x3039 if what?
+The next instruction to execute will be the instruction at x3009 if what?
 
 | Address |      Instruction      |
 | :-----: | :-------------------: |
 | `x3000` | 0001 000 001 0 00 010 |
-| `x3031` |  0000 011 000000111   |
+| `x3001` |  0000 011 000000111   |
 
 ## T4
 
