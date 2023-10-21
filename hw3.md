@@ -25,7 +25,7 @@ An LC-3 program is stored in memory locations `x3000` to `x3005`. Note that the 
 
 The program starts executing with `PC = x3000`.
 
-Your job: In the table below, for each value of **X**, answer the question: "Does the program halt?" (Yes or No). If your answer is "Yes", answer the question: "What value is stored in `R0` immediately after the instruction at `x3005` completes execution?" If your answer is "No", put a dash in the column labeled "Value stored in `R0`".
+Your job: In the table below, for each value of **X**, answer the question: "Does the program halt?" (Yes or No). If your answer is "Yes", answer the question: "What value is stored in `R0` just before the instruction at `x3005` begins execution?" If your answer is "No", put a dash in the column labeled "Value stored in `R0`".
 
 |   **X**   | Does the program halt? | Value stored in `R0` |
 | :-------: | :--------------------: | :------------------: |
