@@ -73,6 +73,8 @@ $$\rm a\ OR\ b\Leftrightarrow (a\ NAND\ a)\ NAND\ (b\ NAND\ b)$$
 
 6. $Y[2]=(A[1]\ {\rm AND}\ ({\rm NOT}\ A[0])\ {\rm AND}\ B[1])\ \\{\rm OR}\ (A[1]\ {\rm AND}\ A[0]\ {\rm AND}\ B[1]\ {\rm AND}\ ({\rm NOT}\ B[0]))$
 
+或化简得到 $Y[2]=A[1]\ {\rm AND}\ B[1]\ {\rm AND}\ ({\rm NOT}\ (A[0]\ {\rm AND}\ B[0]))$
+
 ## A5
 
 ![hw2-5](./hw2/hw2-5-ans.webp)
@@ -122,10 +124,8 @@ $$\rm a\ OR\ b\Leftrightarrow (a\ NAND\ a)\ NAND\ (b\ NAND\ b)$$
 
 ## A10
 
-1. $\log_2(100 * 100 * 4 * 4 * 181 * 100^8) \approx 77.9384077848$ ，即最少使用78个bit存储
+1. $\log_2(100 * 100 * 4 * 4 * 181 * 101^8) \approx 78.05$ ，即最少使用 $79$ 个 bit 存储
 
-2. $$7 * 2\mathrm{bits}\\ 2 * 2\mathrm{bits}\\ 2\mathrm{bits\ for\ minutes}, 6\mathrm{bits\  for \ seconds}\\ 7 * 8\mathrm{bits}$$
-
-总计 82 个 bit
+2. $2\times\lceil\log_2(100)\rceil+2\times\lceil\log_2(4)\rceil+\lceil\log_2(4)\rceil+\lceil\log_2(60)\rceil+8\times\lceil\log_2(101)\rceil=82$ 个 bit 或者 $\lceil\log_2(100^2)\rceil+\lceil\log_2(4^2)\rceil+\lceil\log_2(181)\rceil+\lceil\log_2(101^8)\rceil=80$ 个 bit
 
 3. 言之有理即可，第一种方法使用的bit数更少，但是第二种方法更加便于理解和维护。
