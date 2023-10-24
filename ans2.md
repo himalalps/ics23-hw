@@ -81,7 +81,7 @@ $$\rm a\ OR\ b\Leftrightarrow (a\ NAND\ a)\ NAND\ (b\ NAND\ b)$$
 
 ## A6
 
-![ics23-hw2-ans6](./hw2/hw2-6-ans.jpg)
+![ics23-hw2-ans6](./hw2/hw2-6-ans.png)
 
 |   A   |   B   |   C   |   D   | POWEROFF |
 | :---: | :---: | :---: | :---: | :------: |
