@@ -39,9 +39,29 @@ Memory[MAR] <- MDR
 
 ## A4
 
+1. Branch that is never taken. Same as NOP.
+2. BRnzp #1 => Skips the next instruction, so it is not the same as a NOP.
+3. Add R1, R1, #0 => Sets the condition codes, so it is not the same as a NOP. (Programs might execute differently when the next instrction is BR.)
+
 ## A5
 
+Addressing modes: register, immediate, PC-relative, indirect,Base+offset
+
+| Instruction | Type          | Addr mode(s)        |
+| ----------- | ------------- | ------------------- |
+| ADD         | operate       | register, immediate |
+| NOT         | operate       | register            |
+| LEA         | data movement | immediate           |
+| LDR         | data movement | Base+offset         |
+| JMP         | control       | register            |
+
 ## A6
+
+1. `ADD R4, R5, #0` or `AND R4, R5, #-1`
+2. `AND R3, R3, #0`
+3. `NOT R1, R7`, `ADD R1, R1, #1`, `ADD R1, R1, R6`
+4. `LDR R1, DATA, #0`, `ADD R1, R1, R1`, `STR R1, DATA, #0`
+5. `ADD R1, R1, #0` or `AND R1, R1, #-1`
 
 ## A7
 

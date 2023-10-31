@@ -40,9 +40,29 @@ Suppose that the architect of the LC-3 wanted to include an instruction `MOVE DR
 
 ## T4
 
+Sometimes we would like to have an instruction that does nothing. Many ISAs actually have an opcode `NOP`, for "NO OPERATION". The instruction is fetched, decoded, and executed just like others, but the difference is that the execution phase does nothing! Which of the following three instructions could be used for `NOP` in LC3 and have absolutely **no side effects**?
+
+1. 0000 000 000000000
+2. 0000 111 000000001
+3. 0001 001 001 1 00000
+
 ## T5
 
+List five addressing modes in LC3. Given instructions ADD, NOT, LEA,LDR and JMP, categorize them into operate instructions, data movement instructions, or control instructions. For each instruction mentioned above, list addressing modes that can be used.
+
 ## T6
+
+1. Write a **single** LC3 assembly instruction that copies the content of `R5` to `R4`.
+2. Write a **single** LC3 assembly instruction that clears the content of `R3`. (i.e. `R3 = 0`)
+3. Write **3** LC3 assembly instructions that does `R1=R6-R7`.
+    - You are ONLY allowed to change the value of R1.
+    - You may assume that the initial value of `R1` is 0.
+4. Write **3** LC3 assembly instructions that multiply the value at label `DATA` by 2. (`Mem[DATA] = Mem[DATA] * 2`)
+    - You are allowed to use one of the registers.
+    - You don't need to restore or clear the value of the register you used.
+    - No need to consider overflow.
+5. Set condition codes based on the value of `R1` using only **one** LC-3 instruction.
+    - You are not allowed to change any value in the registers.
 
 ## T7
 
