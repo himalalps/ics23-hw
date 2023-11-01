@@ -66,9 +66,32 @@ List five addressing modes in LC3. Given instructions ADD, NOT, LEA,LDR and JMP,
 
 ## T7
 
+If the current PC points to the address of an JMP instruction, how many memory accesses are required for the LC-3 to process that instruction? What about for ADD and TRAP instructions?
+
 ## T8
 
+The content in PC is x3010. The content of the following memory unit is as follows:
+
+| ADDR  | DATA  |
+| ----- | ----- |
+| x3050 | x70A3 |
+| x70A2 | x70A3 |
+| x70A3 | x70A4 |
+| x70A4 | x3050 |
+
+1. Execution of the following three instructions results in R6 being loaded with a value. What is the value?
+
+| ADDR  | DATA                |
+| ----- | ------------------- |
+| x3010 | 1110 0110 0011 1111 |
+| x3011 | 0110 1000 1111 1111 |
+| x3012 | 0110 1101 0000 0000 |
+
+2. Can the task completed by the above three instructions be accomplished with a single instruction? (Suppose you can define values in register directly)
+
 ## T9
+
+
 
 ## T10
 
