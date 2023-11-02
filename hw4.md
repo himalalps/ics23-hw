@@ -80,20 +80,23 @@ The content in PC is x3010. The content of the following memory unit is as follo
 
 | Address | Value |
 | :-----: | :---: |
-|  x3050  | x70A3 |
-|  x70A2  | x70A3 |
-|  x70A3  | x70A4 |
-|  x70A4  | x3050 |
+|  x304E  | x70A4 |
+|  x304F  | x70A3 |
+|  x3050  | x70A2 |
+|  x70A2  | x70A4 |
+|  x70A3  | x70A3 |
+|  x70A4  | x70A2 |
 
 1. After the execution of the following code, What is the value stored in `R6`?
 
 | Address |        Value        |
 | :-----: | :-----------------: |
-|  x3010  | 1110 0110 0011 1111 |
-|  x3011  | 0110 1000 1111 1111 |
-|  x3012  | 0110 1101 0000 0000 |
+|  x3010  | 1110 0110 0011 1110 |
+|  x3011  | 0110 1000 1100 0002 |
+|  x3012  | 0110 1111 0000 0001 |
+|  x3013  | 0110 1101 1111 1111 |
 
-2. Can you use one instruction to do the same task as the three instructions above do? (Suppose you can define values in register directly)
+2. Can you use one LEA instruction to do the same task as the three instructions above do? (Only consider loading value into R6.)
 
 ## T9
 
