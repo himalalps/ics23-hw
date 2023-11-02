@@ -44,11 +44,13 @@ The LC-3 does not have an opcode for **XOR**, so we're required to write instruc
 
 The following instructions will store the value of (R1 XOR R2) to R3 (`XOR R3, R1, R2`). Fill in the two missing instructions to complete the program. You are only allowed to use the registers R1, R2, R3, and R4.
 
-1. 1001 100 001 111111
-2. 
-3. 1001 011 010 111111
-4. 
-5. 1101 011 011 000 100
+| Address |     Instruction      |
+| :-----: | :------------------: |
+|  x3000  | 1001 100 001 111111  |
+|  x3001  |                      |
+|  x3002  | 1001 011 010 111111  |
+|  x3003  |                      |
+|  x3004  | 1101 011 011 000 100 |
 
 ## T5
 
@@ -70,7 +72,7 @@ List five addressing modes in LC3. Given instructions ADD, NOT, LEA,LDR and JMP,
 
 ## T7
 
-If the current PC points to the address of an JMP instruction, how many memory accesses are required for the LC-3 to process that instruction? What about for ADD and TRAP instructions?
+If the current PC points to the address of an `JMP` instruction, how many memory accesses are required for the LC-3 to process that instruction? What about `ADD` and `LDI` instructions?
 
 ## T8
 
@@ -83,7 +85,7 @@ The content in PC is x3010. The content of the following memory unit is as follo
 |  x70A3  | x70A4 |
 |  x70A4  | x3050 |
 
-1. Execution of the following three instructions results in R6 being loaded with a value. What is the value?
+1. After the execution of the following code, What is the value stored in `R6`?
 
 | Address |        Value        |
 | :-----: | :-----------------: |
@@ -91,11 +93,11 @@ The content in PC is x3010. The content of the following memory unit is as follo
 |  x3011  | 0110 1000 1111 1111 |
 |  x3012  | 0110 1101 0000 0000 |
 
-2. Can the task completed by the above three instructions be accomplished with a single instruction? (Suppose you can define values in register directly)
+2. Can you use one instruction to do the same task as the three instructions above do? (Suppose you can define values in register directly)
 
 ## T9
 
-If after the execution of the following code, the content of `R0` is 12, please speculate what the content related to `R5` will be like. 
+After the execution of the following code, the value stored in `R0` is 12. Please speculate what the value stored in `R5` is like. 
 
 | Address |        Value        |
 | :-----: | :-----------------: |
