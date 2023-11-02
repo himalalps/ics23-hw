@@ -57,15 +57,15 @@ Solution 2:
 
 ## A5
 
-Addressing modes: register, immediate, PC-relative, indirect,Base+offset
+Addressing modes: register, immediate, PC-relative, indirect, Base+offset
 
 | Instruction | Type          | Addr mode(s)        |
-| ----------- | ------------- | ------------------- |
-| ADD         | operate       | register, immediate |
-| NOT         | operate       | register            |
-| LEA         | data movement | immediate           |
-| LDR         | data movement | Base+offset         |
-| JMP         | control       | register            |
+| :---------: | :------------ | :------------------ |
+|     ADD     | operate       | register, immediate |
+|     NOT     | operate       | register            |
+|     LEA     | data movement | immediate           |
+|     LDR     | data movement | Base+offset         |
+|     JMP     | control       | register            |
 
 ## A6
 
