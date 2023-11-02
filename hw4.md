@@ -59,10 +59,10 @@ List five addressing modes in LC3. Given instructions ADD, NOT, LEA,LDR and JMP,
 1. Write a **single** LC3 assembly instruction that copies the content of `R5` to `R4`.
 2. Write a **single** LC3 assembly instruction that clears the content of `R3`. (i.e. `R3 = 0`)
 3. Write **3** LC3 assembly instructions that does `R1=R6-R7`.
-    - You are ONLY allowed to change the value of R1.
+    - You are ONLY allowed to change the value of `R1`.
     - You may assume that the initial value of `R1` is 0.
 4. Write **3** LC3 assembly instructions that multiply the value at label `DATA` by 2. (`Mem[DATA] = Mem[DATA] * 2`)
-    - You are allowed to use one of the registers.
+    - You are ONLY allowed to change the value of `R1`.
     - You don't need to restore or clear the value of the register you used.
     - No need to consider overflow.
 5. Set condition codes based on the value of `R1` using only **one** LC-3 instruction.
@@ -95,21 +95,21 @@ The content in PC is x3010. The content of the following memory unit is as follo
 
 ## T9
 
-If after the execution of the following code, the content of RO is 12, please speculate what the content related to R5 will be like. 
+If after the execution of the following code, the content of `R0` is 12, please speculate what the content related to `R5` will be like. 
 
-| ADDR  | INS                 |
-| ----- | ------------------- |
-| x3000 | 0101 0000 0010 0000 |
-| x3001 | 0101 1111 1110 0000 |
-| x3002 | 0001 1100 0010 0001 |
-| x3003 | 0001 1101 1000 0110 |
-| x3004 | 0101 1001 0100 0110 |
-| x3005 | 0000 0100 0000 0001 |
-| x3006 | 0001 0000 0010 0001 |
-| x3007 | 0001 1111 1110 0010 |
-| x3008 | 0001 0011 1111 0010 |
-| x3009 | 0000 1001 1111 1001 |
-| x300A | 0101 1111 1110 0000 |
+| Address |        Value        |
+| :-----: | :-----------------: |
+|  x3000  | 0101 0000 0010 0000 |
+|  x3001  | 0101 1111 1110 0000 |
+|  x3002  | 0001 1100 0010 0001 |
+|  x3003  | 0001 1101 1000 0110 |
+|  x3004  | 0101 1001 0100 0110 |
+|  x3005  | 0000 0100 0000 0001 |
+|  x3006  | 0001 0000 0010 0001 |
+|  x3007  | 0001 1111 1110 0010 |
+|  x3008  | 0001 0011 1111 0010 |
+|  x3009  | 0000 1001 1111 1001 |
+|  x300A  | 0101 1111 1110 0000 |
 
 ## T10
 

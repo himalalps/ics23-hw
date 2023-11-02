@@ -95,27 +95,20 @@ Addressing modes: register, immediate, PC-relative, indirect, Base+offset
 
 指令序列如下
 
-x3000 AND R0 R0 0
+| Address |        Value        |   Comments    |
+| :-----: | :-----------------: | :-----------: |
+|  x3000  | 0101 0000 0010 0000 |  AND R0 R0 0  |
+|  x3001  | 0101 1111 1110 0000 |  AND R7 R7 0  |
+|  x3002  | 0001 1100 0010 0001 |  ADD R6 R0 1  |
+|  x3003  | 0001 1101 1000 0110 | ADD R6 R6 R6  |
+|  x3004  | 0101 1001 0100 0110 | AND R4 R5 R6  |
+|  x3005  | 0000 0100 0000 0001 |     BRz 1     |
+|  x3006  | 0001 0000 0010 0001 | ADD R0 R0 0x3 |
+|  x3007  | 0001 1111 1110 0010 |  ADD R7 R7 2  |
+|  x3008  | 0001 0011 1111 0010 | ADD R1 R7 -14 |
+|  x3009  | 0000 1001 1111 1001 |    BRn -7     |
+|  x300A  | 0101 1111 1110 0000 |  AND R7 R7 0  |
 
-x3001 AND R7 R7 0
-
-x3002 ADD R6 R0 1
-
-x3003 ADD R6 R6 R6
-
-x3004 AND R4 R5 R6
-
-x3005 BRz 1
-
-x3006 ADD R0 R0 0x3
-
-x3007 ADD R7 R7 2
-
-x3008 ADD R1 R7 -14
-
-x3009 BRn -7
-
-x300A AND R7 R7 0
 
 ```c
 r0 = r0 & 0
