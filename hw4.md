@@ -46,9 +46,9 @@ The following instructions will store the value of (R1 XOR R2) to R3 (`XOR R3, R
 
 1. 1001 100 001 111111
 2. 
-3. 1001 101 010 111111
+3. 1001 011 010 111111
 4. 
-5. 1101 011 100 000 101
+5. 1101 011 011 000 100
 
 ## T5
 
