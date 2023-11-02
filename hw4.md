@@ -96,7 +96,7 @@ The content in PC is x3010. The content of the following memory unit is as follo
 |  x3012  | 0110 1111 0000 0001 |
 |  x3013  | 0110 1101 1111 1111 |
 
-2. Can you use one LEA instruction to do the same task as the three instructions above do? (Only consider loading value into R6.)
+2. Can you use one LEA instruction to do the same task as the three instructions above do? (Only consider loading value into `R6`.)
 
 ## T9
 
