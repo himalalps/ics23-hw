@@ -47,15 +47,15 @@ Memory[MAR] <- MDR
 
 ## A5
 
-Addressing modes: register, immediate, PC-relative, indirect,Base+offset
+Addressing modes: register, immediate, PC-relative, indirect, Base+offset
 
 | Instruction | Type          | Addr mode(s)        |
-| ----------- | ------------- | ------------------- |
-| ADD         | operate       | register, immediate |
-| NOT         | operate       | register            |
-| LEA         | data movement | immediate           |
-| LDR         | data movement | Base+offset         |
-| JMP         | control       | register            |
+| :---------: | :------------ | :------------------ |
+|     ADD     | operate       | register, immediate |
+|     NOT     | operate       | register            |
+|     LEA     | data movement | immediate           |
+|     LDR     | data movement | Base+offset         |
+|     JMP     | control       | register            |
 
 ## A6
 
@@ -82,6 +82,49 @@ Addressing modes: register, immediate, PC-relative, indirect,Base+offset
 理论上是能够使用单一指令完成
 
 ## A9
+
+指令序列如下
+
+x3000 AND R0 R0 0
+
+x3001 AND R7 R7 0
+
+x3002 ADD R6 R0 1
+
+x3003 ADD R6 R6 R6
+
+x3004 AND R4 R5 R6
+
+x3005 BRz 1
+
+x3006 ADD R0 R0 0x3
+
+x3007 ADD R7 R7 2
+
+x3008 ADD R1 R7 -14
+
+x3009 BRn -7
+
+x300A AND R7 R7 0
+
+```c
+r0 = r0 & 0
+r7 = r7 & 0;
+r6 = r0 + 1;
+do {
+  r6 = r6 + r6;
+  r4 = r5 & r6;
+  if (r4 != 0) {
+    r0 += 3;
+  }
+  r7 = r7 + 2;
+  r1 = r7 - 14;
+  r2 = r1 + r1;
+}while(r2 < 0);
+r7 = r7 & 0;
+```
+
+反推得到r5的第2位到第8位中有且仅有4个1 (或者低8位中有4个或5个1)
 
 ## A10
 
