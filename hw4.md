@@ -40,11 +40,15 @@ Suppose that the architect of the LC-3 wanted to include an instruction `MOVE DR
 
 ## T4
 
-Sometimes we would like to have an instruction that does nothing. Many ISAs actually have an opcode `NOP`, for "NO OPERATION". The instruction is fetched, decoded, and executed just like others, but the difference is that the execution phase does nothing! Which of the following three instructions could be used for `NOP` in LC3 and have absolutely **no side effects**?
+The LC-3 does not have an opcode for **XOR**, so we're required to write instructions to implement the XOR operation by ourselves. Assume that the reserved opcode `1101` is implemented as OR instruction, which shares the same format as AND instruction.
 
-1. 0000 000 000000000
-2. 0000 111 000000001
-3. 0001 001 001 1 00000
+The following instructions will store the value of (R1 XOR R2) to R3 (`XOR R3, R1, R2`). Fill in the two missing instructions to complete the program. You are only allowed to use the registers R1, R2, R3, and R4.
+
+1. 1001 100 001 111111
+2. 
+3. 1001 101 010 111111
+4. 
+5. 1101 011 100 000 101
 
 ## T5
 
@@ -91,7 +95,7 @@ The content in PC is x3010. The content of the following memory unit is as follo
 
 ## T9
 
-If after the execution of the following code, the content of RO is 5, please speculate what the content related to R5 will be like.
+If after the execution of the following code, the content of R0 is 5, please speculate what the content related to R5 will be like.
 
 | ADDR  | INS                 |
 | ----- | ------------------- |
@@ -105,8 +109,6 @@ If after the execution of the following code, the content of RO is 5, please spe
 | x3007 | 0001 0011 1111 1000 |
 | x3008 | 0000 1001 1111 1001 |
 | x3009 | 0101 1111 1110 0000 |
-
-
 
 ## T10
 

@@ -39,9 +39,21 @@ Memory[MAR] <- MDR
 
 ## A4
 
-1. Branch that is never taken. Same as NOP.
-2. BRnzp #1 => Skips the next instruction, so it is not the same as a NOP.
-3. Add R1, R1, #0 => Sets the condition codes, so it is not the same as a NOP. (Programs might execute differently when the next instrction is BR.)
+Solution 1:
+
+1. 1001 100 001 111111 (NOT R4, R1)
+2. 0101 100 100 000 010 (AND R4, R4, R2)
+3. 1001 011 010 111111 (NOT R3, R2)
+4. 0101 011 011 000 001 (AND R3, R3, R1)
+5. 1101 011 011 000 100 (OR R3, R4, R3)
+
+Solution 2:
+
+1. 1001 011 001 111111 (NOT R3, R1)
+2. 0101 011 011 000 010 (AND R3, R3, R2)
+3. 1001 100 010 111111 (NOT R4, R2)
+4. 0101 100 100 000 001 (AND R4, R4, R1)
+5. 1101 011 011 000 100 (OR R3, R3, R4)
 
 ## A5
 
