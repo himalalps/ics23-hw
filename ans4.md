@@ -64,7 +64,7 @@ Addressing modes: register, immediate, PC-relative, indirect, Base+offset
 1. `ADD R4, R5, #0` or `AND R4, R5, #-1`
 2. `AND R3, R3, #0`
 3. `NOT R1, R7`, `ADD R1, R1, #1`, `ADD R1, R1, R6`
-4. `LDR R1, DATA, #0`, `ADD R1, R1, R1`, `STR R1, DATA, #0`
+4. `LD R1, DATA`, `ADD R1, R1, R1`, `ST R1, DATA`
 5. `ADD R1, R1, #0` or `AND R1, R1, #-1`
 
 ## A7
