@@ -79,6 +79,30 @@ C   .BLKW 1
 
 ## T8
 
+We all know that we can achieve left-shift by adding the number to itself. For example, `ADD R0, R0, R0` will left-shift R0 by 1 bit. However, right-shift is not that easy. Complete the following LC3 program so that it will right-shift R0 by 1 bit.
+
+```assembly
+.ORIG x3000
+    ; Suppose R0 is already loaded with the target number
+    ; Initialize
+    AND R1, R1, #0  ; Result
+    ADD R2, R1, #15 ; Loop var i
+    ADD R3, R1, #__ ; 2^(**DELETED**)
+    ADD R4, R1, #1  ; 2^(15 - i)
+    AND R5, R5, #0  ; Temp result
+    ; Main Loop
+L   AND R5, R3, R0  ; Test bit
+    BR___ N         ; **DELETED**
+    ADD R1, R1, R4  ; Add to result
+N   ADD R3, __, __  ; **DELETED**
+    ADD R4, R4, R4  ; L-shift R4
+    ADD __, __, ___ ; **DELETED**
+    BRp L
+    ; End
+    HALT
+.END
+```
+
 ## T9
 
 ## T10

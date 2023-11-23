@@ -39,6 +39,34 @@ Comment: Your program will be very tricky if you utilize this behavior of LC3. I
 
 ## A8
 
+- 2
+- z
+- R3, R3
+- R2, R2, #-1
+
+```assembly
+.ORIG x3000
+    LD R0, INP      ; Target
+    ; Initialize
+    AND R1, R1, #0  ; Result
+    ADD R2, R1, #15 ; Loop var i
+    ADD R3, R1, #2  ; 2^(16 - i), for AND (Source mask)
+    ADD R4, R1, #1  ; 2^(15 - i), for ADD (Dest mask)
+    AND R5, R5, #0  ; Temp result
+    ; Main Loop
+L   AND R5, R3, R0  ; Test bit
+    BRz N           ; The bit is 0, skip add
+    ADD R1, R1, R4  ; Add dest mask to result
+N   ADD R3, R3, R3  ; L-shift source mask
+    ADD R4, R4, R4  ; L-shift dest mask
+    ADD R2, R2, #-1 ; Decr loop var
+    BRp L
+    ; End
+    HALT
+INP .FILL x1234
+.END
+```
+
 ## A9
 
 ## A10
