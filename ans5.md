@@ -16,6 +16,16 @@
 
 ## A4
 
+1. x0FFF.
+2. Yes.
+3. Infinite loop. x0FFF interpreted as "BRnzp #-1".
+
+Root cause: LC3 stores data and instructions together, so data might be interpreted as instructions.
+
+Solution: Store data and instructions in separate. (Instruction memory + Data memory)
+
+Comment: Your program will be very tricky if you utilize this behavior of LC3. If you use it well, you might create something amazing; However, it is most likely to cause more trouble than it's worth. However, do note that this may give rise to security issues. In this case, by controlling input data at DATA, one can execute a line of ANY assembly code!
+
 ## A5
 
 ## A6
