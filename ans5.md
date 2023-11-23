@@ -28,6 +28,16 @@ Comment: Your program will be very tricky if you utilize this behavior of LC3. I
 
 ## A5
 
+- `.FILL` 用于存放一个 16 位的数据在它的地址。例如 `.FILL x1234` 将 `x1234` 存放到内存中
+- `.BLKW` 用于预留多个字。例如 `.BLKW 3` 将在这个位置留下 3 个字，以便后续存放数据
+- `.STRINGZ` 用于在连续的内存中存放字符串。例如 `.STRINGZ "Hello"` 将字符串 中的字符 ASCII 码存放到连续内存中，最后以 0 结尾
+
+| Pseudo-op | 可自定义预留值 | 可占用多个字 |
+| --------- | ------------- | ----------- |
+| `.FILL`   | 是            | 否          |
+| `.BLKW`   | 否            | 是          |
+| `.STRINGZ`| 是            | 是          |
+
 ## A6
 
 ## A7

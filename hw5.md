@@ -50,6 +50,8 @@ Questions:
 
 ## T5
 
+What's the difference between pseudo-ops `.FILL`, `.BLKW` and `.STRINGZ` in LC3?
+
 ## T6
 
 ## T7
