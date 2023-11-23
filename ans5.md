@@ -16,16 +16,16 @@
 
 ## A4
 
-(a) `NOT R2, R1`
-(b) `ADD R2, R2, #1`
-(c) `BRz DONE`
-(d) `ADD R0, R0, #1`
-
 ## A5
 
 ## A6
 
 ## A7
+
+(a) `NOT R2, R1`
+(b) `ADD R2, R2, #1`
+(c) `BRz DONE`
+(d) `ADD R0, R0, #1`
 
 ## A8
 

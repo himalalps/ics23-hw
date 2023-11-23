@@ -24,6 +24,12 @@ Suppose you write two separate assembly language modules that you expect to be c
 
 ## T4
 
+## T5
+
+## T6
+
+## T7
+
 It is often useful to find the midpoint between two values. **For this problem, assume A and B are both even numbers, and A is less than B.** For example, if A = 2 and B = 8, the midpoint is 5. The following program finds the midpoint of two even numbers A and B by continually incrementing the smaller number and decrementing the larger number. You can assume that `A` and `B` have been loaded with values before this program starts execution.
 
 Your job: Insert the missing instructions.
@@ -46,12 +52,6 @@ B   .BLKW 1
 C   .BLKW 1
     .END
 ```
-
-## T5
-
-## T6
-
-## T7
 
 ## T8
 
