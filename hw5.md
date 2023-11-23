@@ -25,7 +25,7 @@ B   .FILL xBEEF
 Your friend has just written a simple program intended to calculate complements, which is as follows:
 
 ```assembly
-.ORIG   x3000
+.ORIG x3000
     ; Simple program that should calculate complement of DATA and store the result back
     LD R2, DATA
     NOT R2, R2
