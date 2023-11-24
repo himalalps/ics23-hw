@@ -27,14 +27,14 @@ Suppose you write two separate assembly language modules that you expect to be c
 Your friend has just written a simple program intended to calculate complements, which is as follows:
 
 ```assembly
-.ORIG x3000
+    .ORIG x3000
     ; Simple program that should calculate complement of DATA and store the result back
     LD R2, DATA
     NOT R2, R2
     ADD R2, R2, #1
     ST R2, DATA
-    DATA .FILL xF001 ; <- Put your data here
-.END
+DATA .FILL xF001 ; <- Put your data here
+    .END
 ```
 
 However, it does not seem to be reliable for some reason...
@@ -81,28 +81,28 @@ C   .BLKW 1
 
 ## T8
 
-We all know that we can achieve left-shift by adding the number to itself. For example, `ADD R0, R0, R0` will left-shift R0 by 1 bit. However, right-shift is not that easy. Complete the following LC3 program so that it will right-shift R0 by 1 bit.
+We all know that we can achieve left-shift by adding the number to itself. For example, `ADD R0, R0, R0` will left-shift R0 by 1 bit. However, right-shift is not that easy. Complete the following LC3 program so that it will right-shift R0 by 1 bit. Note that some comments have been deleted.
 
 ```assembly
-.ORIG x3000
+    .ORIG x3000
     ; Suppose R0 is already loaded with the target number
     ; Initialize
-    AND R1, R1, #0  ; Result
-    ADD R2, R1, #15 ; Loop var i
-    ADD R3, R1, #__ ; 2^(**DELETED**)
-    ADD R4, R1, #1  ; 2^(15 - i)
-    AND R5, R5, #0  ; Temp result
+    AND R1, R1, #0      ; Result
+    ADD R2, R1, #15     ; Loop var i
+    ADD R3, R1, #__ (a) ; 1 << (**DELETED**)
+    ADD R4, R1, #1      ; 1 << (15 - i)
+    AND R5, R5, #0      ; Temp result
     ; Main Loop
-L   AND R5, R3, R0  ; Test bit
-    BR___ N         ; **DELETED**
-    ADD R1, R1, R4  ; Add to result
-N   ADD R3, __, __  ; **DELETED**
-    ADD R4, R4, R4  ; L-shift R4
-    ADD __, __, ___ ; **DELETED**
+L   AND R5, R3, R0      ; Test bit
+    BR___ (b) N         ; **DELETED**
+    ADD R1, R1, R4      ; Add to result
+N   ADD R3, __, __ (c)  ; **DELETED**
+    ADD R4, R4, R4      ; L-shift R4
+    ADD __, __, __ (d)  ; **DELETED**
     BRp L
     ; End
     HALT
-.END
+    .END
 ```
 
 ## T9

@@ -49,13 +49,13 @@ Comment: Your program will be very tricky if you utilize this behavior of LC3. I
 
 ## A8
 
-- 2
-- z
-- R3, R3
-- R2, R2, #-1
+(a) 2
+(b) z
+(c) R3, R3
+(d) R2, R2, #-1
 
 ```assembly
-.ORIG x3000
+    .ORIG x3000
     LD R0, INP      ; Target
     ; Initialize
     AND R1, R1, #0  ; Result
@@ -74,7 +74,7 @@ N   ADD R3, R3, R3  ; L-shift source mask
     ; End
     HALT
 INP .FILL x1234
-.END
+    .END
 ```
 
 ## A9
