@@ -6,6 +6,10 @@ What is the purpose of the `.END` pseudo-op? How does it differ from the `HALT` 
 
 ## T2
 
+What are the defining characteristics of a queue?
+
+## T3
+
 The following program has an error in it. What is the error? How would you fix it?
 
 ```assembly
@@ -18,11 +22,11 @@ B   .FILL xBEEF
     .END
 ```
 
-## T3
+## T4
 
 Suppose you write two separate assembly language modules that you expect to be combined by the linker. Each module uses the label `AGAIN`, and neither module contains the pseudo-op `.EXTERNAL AGAIN`. Is there a problem using the label `AGAIN` in both modules? Why or why not?
 
-## T4
+## T5
 
 Your friend has just written a simple program intended to calculate complements, which is as follows:
 
@@ -48,11 +52,9 @@ Questions:
 > Open questions (Answer if you like, but it **WILL NOT** be graded):
 > What's the root cause of this phenomenon? How can we prevent this from happening?
 
-## T5
+## T6
 
 What's the difference between pseudo-ops `.FILL`, `.BLKW` and `.STRINGZ` in LC3?
-
-## T6
 
 ## T7
 
@@ -107,5 +109,47 @@ N   ADD R3, __, __ (c)  ; **DELETED**
 
 ## T9
 
+The following operations are performed on a stack:
+
+```
+PUSH A
+PUSH B
+POP
+PUSH C
+POP
+PUSH D
+PUSH E
+PUSH F
+POP
+PUSH G
+POP
+POP
+POP
+PUSH H
+```
+
+1. What dose the stack contain after the `PUSH H`
+2. At which point does the stack contain the most element?
+
+Without removing the element left on the stack from the previous operations, we change this stack to a queue (the front of queue is the top of stack), and perform
+
+```
+PUSH I
+POP
+PUSH J
+PUSH K
+POP
+PUSH L
+POP
+POP
+POP
+POP
+PUSH M
+POP
+```
+
+3. What does the stack contain now
+
 ## T10
 
+Write a function that implements another stack function, peek. Peek returns the value of the first element on the stack without removing the element from the stack. Peek should also do underflow error checking. （Suppose the pointer of top of the stack is in R6)
