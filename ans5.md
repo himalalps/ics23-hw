@@ -37,7 +37,7 @@ Comment: Your program will be very tricky if you utilize this behavior of LC3. I
 ## A6
 
 - `.FILL` 用于存放一个 16 位的数据在它的地址。例如 `.FILL x1234` 将 `x1234` 存放到内存中
-- `.BLKW` 用于预留多个字。例如 `.BLKW 3` 将在这个位置留下 3 个字，以便后续存放数据
+- `.BLKW` 用于预留多个字。例如 `.BLKW #3` 将在这个位置留下 3 个字，以便后续存放数据，被预留的字在内存中默认为 `x0000`
 - `.STRINGZ` 用于在连续的内存中存放字符串。例如 `.STRINGZ "Hello"` 将字符串 中的字符 ASCII 码存放到连续内存中，最后以 `x0000` 结尾
 
 | Pseudo-op  | 可自定义预留值 | 可占用多个字 |
@@ -132,13 +132,13 @@ DEQUEUE   -> (Empty)    (M is removed)
 ```assembly
 ; PEEK函数实现
 ; 假设栈顶指针存储在R6中
-PEEK    ST R1, SAVE_R1
+PEEK    ST R1, SAVE_R1  ; 保存寄存器
         ST R2, SAVE_R2
-        LD R1, EMPTY
-        ADD R2, R6, R1
-        BRz UNDERFLOW
-        LDR R0, R6, #0
-        LD R2, SAVE_R2
+        LD R1, EMPTY    ; R1 = -x4000
+        ADD R2, R6, R1  ; 把栈顶指针和 x4000 比较
+        BRz UNDERFLOW   ; 如果相等，说明栈空，下溢
+        LDR R0, R6, #0  ; 否则，取栈顶元素
+        LD R2, SAVE_R2  ; 恢复寄存器
         LD R1, SAVE_R1
         RET
 
@@ -148,7 +148,7 @@ UNDERFLOW LEA R0, UNDERFLOW_MSG
           HALT
 
 ; 数据定义
-EMPTY   .FILL xC000 ; EMPTY <-- -x4000
+EMPTY   .FILL xC000 ; EMPTY 保存 -x4000
 SAVE_R1 .BLKW #1
 SAVE_R2 .BLKW #1
 UNDERFLOW_MSG .STRINGZ "Stack underflow error"
