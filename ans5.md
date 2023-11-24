@@ -8,9 +8,9 @@
 
 队列的定义特征主要包括以下几点：
 
-1. 先进先出（FIFO）原则：队列中的元素从队尾（rear）进入，从队头（front）出来，最先加入队列的元素将是最先被移除的。
+1. 先进先出 (FIFO) 原则：队列中的元素从队尾 (rear) 进入，从队头 (front) 出来，最先加入队列的元素将是最先被移除的。
 2. 线性结构：队列是一种线性结构，元素之间是一对一的关系，每个元素有且仅有一个前驱和一个后继（除了队头和队尾的特殊元素）。
-3. 操作限定：队列的操作主要限定在队头和队尾进行，包括入队（enqueue）操作在队尾添加元素，出队（dequeue）操作在队头移除元素。
+3. 操作限定：队列的操作主要限定在队头和队尾进行，包括入队 (enqueue) 操作在队尾添加元素，出队 (dequeue) 操作在队头移除元素。
 
 ## A3
 
@@ -38,15 +38,17 @@ Comment: Your program will be very tricky if you utilize this behavior of LC3. I
 
 - `.FILL` 用于存放一个 16 位的数据在它的地址。例如 `.FILL x1234` 将 `x1234` 存放到内存中
 - `.BLKW` 用于预留多个字。例如 `.BLKW 3` 将在这个位置留下 3 个字，以便后续存放数据
-- `.STRINGZ` 用于在连续的内存中存放字符串。例如 `.STRINGZ "Hello"` 将字符串 中的字符 ASCII 码存放到连续内存中，最后以 0 结尾
+- `.STRINGZ` 用于在连续的内存中存放字符串。例如 `.STRINGZ "Hello"` 将字符串 中的字符 ASCII 码存放到连续内存中，最后以 `x0000` 结尾
 
-| Pseudo-op | 可自定义预留值 | 可占用多个字 |
-| --------- | ------------- | ----------- |
-| `.FILL`   | 是            | 否          |
-| `.BLKW`   | 否            | 是          |
-| `.STRINGZ`| 是            | 是          |
+| Pseudo-op  | 可自定义预留值 | 可占用多个字 |
+| ---------- | :------------: | :----------: |
+| `.FILL`    |       是       |      否      |
+| `.BLKW`    |       否       |      是      |
+| `.STRINGZ` |       是       |      是      |
 
 ## A7
+
+因为 (d) 之后为无条件跳转，因此此时应该是已经判断当前还不相等，且已经将 `A` 加一，将 `B` 减一后的了，而最初就应该判断相等，且 (b) 为将 `R2` 和 `R1` 相加，猜测 (a) 和 (b) 为取 `R0` 负数补码存到 `R2` 中，(c) 为如果相等则直接跳转到存储的指令，否则 (d) 要将 `R0` 加一.
 
 (a) `NOT R2, R1`
 (b) `ADD R2, R2, #1`
@@ -90,62 +92,65 @@ INP .FILL x1234
 ```
 PUSH A  -> A
 PUSH B  -> B, A
-POP     -> A (B is removed)
+POP     -> A            (B is removed)
 PUSH C  -> C, A
-POP     -> A (C is removed)
+POP     -> A            (C is removed)
 PUSH D  -> D, A
 PUSH E  -> E, D, A
 PUSH F  -> F, E, D, A
-POP     -> E, D, A (F is removed)
+POP     -> E, D, A      (F is removed)
 PUSH G  -> G, E, D, A
-POP     -> E, D, A (G is removed)
-POP     -> D, A (E is removed)
-POP     -> A (D is removed)
+POP     -> E, D, A      (G is removed)
+POP     -> D, A         (E is removed)
+POP     -> A            (D is removed)
 PUSH H  -> H, A
 ```
 
 ### 2
 
-最多的时候是执行`PUSH F`后或者`PUSH G`后，总共有4个
+最多的时候是执行 `PUSH F` 后或者 `PUSH G` 后，总共有 4 个元素
 
 ### 3
 
 ```
-PUSH I -> H, A, I
-POP    -> A, I (H is removed)
-PUSH J -> A, I, J
-PUSH K -> A, I, J, K
-POP    -> I, J, K (A is removed)
-PUSH L -> I, J, K, L
-POP    -> J, K, L (I is removed)
-POP    -> K, L (J is removed)
-POP    -> L (K is removed)
-POP    -> (Empty) (L is removed)
-PUSH M -> M
-POP    -> Queue after operation: (Empty) (M is removed)
+ENQUEUE I -> H, A, I
+DEQUEUE   -> A, I       (H is removed)
+ENQUEUE J -> A, I, J
+ENQUEUE K -> A, I, J, K
+DEQUEUE   -> I, J, K    (A is removed)
+ENQUEUE L -> I, J, K, L
+DEQUEUE   -> J, K, L    (I is removed)
+DEQUEUE   -> K, L       (J is removed)
+DEQUEUE   -> L          (K is removed)
+DEQUEUE   -> (Empty)    (L is removed)
+ENQUEUE M -> M
+DEQUEUE   -> (Empty)    (M is removed)
 ```
 
 ## A10
 
 ```assembly
-; 假设栈顶指针存储在R6中，栈的元素存储在内存中
-
 ; PEEK函数实现
-PEEK:   ST R7, SAVE_R7          ; 保存R7的值
-        LD R7, STACK_POINTER    ; 加载栈顶指针到R7
-        BRZ UNDERFLOW           ; 如果R7为0，则跳转到栈下溢错误处理
-        LDR R0, R7, #0          ; 将栈顶的值加载到R0中（不修改栈）
-        LD R7, SAVE_R7          ; 恢复R7的原始值
-        RET                     ; 返回到调用函数
+; 假设栈顶指针存储在R6中
+PEEK    ST R1, SAVE_R1
+        ST R2, SAVE_R2
+        LD R1, EMPTY
+        ADD R2, R6, R1
+        BRz UNDERFLOW
+        LDR R0, R6, #0
+        LD R2, SAVE_R2
+        LD R1, SAVE_R1
+        RET
 
 ; 栈下溢错误处理
-UNDERFLOW: LEA R0, UNDERFLOW_MSG ; 加载错误信息地址到R0
-           PUTS                 ; 输出错误信息
-           HALT                 ; 停止程序
+UNDERFLOW LEA R0, UNDERFLOW_MSG
+          PUTS
+          HALT
 
 ; 数据定义
-SAVE_R7:   .BLKW #1            ; 用于保存R7的值
-STACK_POINTER: .FILL R6         ; 栈顶指针（示例）
-UNDERFLOW_MSG: .STRINGZ "Stack underflow error\n"
+EMPTY   .FILL xC000 ; EMPTY <-- -x4000
+SAVE_R1 .BLKW #1
+SAVE_R2 .BLKW #1
+UNDERFLOW_MSG .STRINGZ "Stack underflow error"
 ```
 

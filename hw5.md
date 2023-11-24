@@ -6,7 +6,7 @@ What is the purpose of the `.END` pseudo-op? How does it differ from the `HALT` 
 
 ## T2
 
-What are the defining characteristics of a queue?
+What are the definitions of a *queue*?
 
 ## T3
 
@@ -32,12 +32,13 @@ Your friend has just written a simple program intended to calculate complements,
 
 ```assembly
     .ORIG x3000
-    ; Simple program that should calculate complement of DATA and store the result back
+    ; Simple program that should calculate 
+    ; complement of DATA and store the result back
     LD R2, DATA
     NOT R2, R2
     ADD R2, R2, #1
     ST R2, DATA
-DATA .FILL xF001 ; <- Put your data here
+DATA .FILL xF001
     .END
 ```
 
@@ -64,13 +65,13 @@ Your job: Insert the missing instructions.
 
 ```assembly
     .ORIG x3000
-    LD R0,A
-    LD R1,B
+    LD R0, A
+    LD R1, B
 X   ________________ (a)
     ________________ (b)
-    ADD R2,R2,R1
+    ADD R2, R2, R1
     ________________ (c)
-    ADD R1,R1,#-1
+    ADD R1, R1, #-1
     ________________ (d)
     BRnzp X
 DONE ST R1,C
@@ -128,28 +129,28 @@ POP
 PUSH H
 ```
 
-1. What dose the stack contain after the `PUSH H`
+1. What dose the stack contain after the `PUSH H` ?
 2. At which point does the stack contain the most element?
 
-Without removing the element left on the stack from the previous operations, we change this stack to a queue (the front of queue is the top of stack), and perform
+Without removing the element left in the stack from the previous operations, we change this stack to a queue (the front of queue is the top of stack), and perform
 
 ```
-PUSH I
-POP
-PUSH J
-PUSH K
-POP
-PUSH L
-POP
-POP
-POP
-POP
-PUSH M
-POP
+ENQUEUE I
+DEQUEUE
+ENQUEUE J
+ENQUEUE K
+DEQUEUE
+ENQUEUE L
+DEQUEUE
+DEQUEUE
+DEQUEUE
+DEQUEUE
+ENQUEUE M
+DEQUEUE
 ```
 
-3. What does the stack contain now
+3. What does the stack contain now?
 
 ## T10
 
-Write a function that implements another stack function, peek. Peek returns the value of the first element on the stack without removing the element from the stack. Peek should also do underflow error checking. （Suppose the pointer of top of the stack is in R6)
+Write a function that implements another stack function, `PEEK`. `PEEK` returns the value of the top element of the stack without removing the element from the stack. The return value is stored in `R0`, so you don't need to save `R0`. `PEEK` should also do underflow error checking: if an underflow occurs, you should output the string "Stack underflow error" and halt. (Suppose the pointer of top of the stack is in `R6`, and the stack can only take up the memory space from `x3FFF` to `x3FF0`)
