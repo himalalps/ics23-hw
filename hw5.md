@@ -46,8 +46,8 @@ However, it does not seem to be reliable for some reason...
 
 Questions:
 
-1. What's the complement of xF001 in hex?
-2. Will the program store the complement to DATA?
+1. What's the 2's complement of `xF001` in hex?
+2. Will the program store the complement to `DATA`?
 3. What will happen afterwards? Why?
 
 > Open questions (Answer if you like, but it **WILL NOT** be graded):
@@ -84,7 +84,7 @@ C   .BLKW 1
 
 ## T8
 
-We all know that we can achieve left-shift by adding the number to itself. For example, `ADD R0, R0, R0` will left-shift R0 by 1 bit. However, right-shift is not that easy. Complete the following LC3 program so that it will right-shift R0 by 1 bit. Note that some comments have been deleted.
+We all know that we can achieve left-shift by adding the number to itself. For example, `ADD R0, R0, R0` will left-shift `R0` by 1 bit. However, **right-shift** is not that easy. Complete the following LC3 program so that it will right-shift `R0` by 1 bit. Note that some comments have been deleted.
 
 ```assembly
     .ORIG x3000
