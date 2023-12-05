@@ -50,7 +50,7 @@ Comment: Your program will be very tricky if you utilize this behavior of LC3. I
 
 因为 (d) 之后为无条件跳转，因此此时应该是已经判断当前还不相等，且已经将 `A` 加一，将 `B` 减一后的了，而最初就应该判断相等，且 (b) 为将 `R2` 和 `R1` 相加，猜测 (a) 和 (b) 为取 `R0` 负数补码存到 `R2` 中，(c) 为如果相等则直接跳转到存储的指令，否则 (d) 要将 `R0` 加一.
 
-(a) `NOT R2, R1`
+(a) `NOT R2, R0`
 (b) `ADD R2, R2, #1`
 (c) `BRz DONE`
 (d) `ADD R0, R0, #1`
