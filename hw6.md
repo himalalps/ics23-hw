@@ -70,6 +70,10 @@ Your jobs:
 
 ## T7
 
+1. What problem might arise if a program does not check `KBSR` before *reading* `KBDR`?
+2. What problem might arise if the keyboard does not check `KBSR` before *writing* to `KBDR`?
+3. Which one of the two problems mentioned above is more likely to occur? Justify your answer.
+
 ## T8
 
 ## T9

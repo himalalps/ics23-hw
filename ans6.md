@@ -68,6 +68,10 @@ SAVE_R4 .BLKW 1
 
 ## A7
 
+1. It might reads an input character more than once.
+2. It might overwrite an input character before it is processed.
+3. The first scenario is more likely to happen, because CPU is much faster than human input.
+
 ## A8
 
 ## A9
