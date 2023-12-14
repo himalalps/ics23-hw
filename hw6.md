@@ -128,3 +128,37 @@ SYMBOL  .FILL #33
 ## T9
 
 ## T10
+
+Consider the following program:
+
+```assembly
+        .ORIG x3000
+        LD R0, A
+        LD R1, B
+        BRz DONE
+        _____________ (a)
+        _____________ (b)
+        BRnzp AGAIN
+DONE    ST R0, A
+        HALT
+A       .FILL x0___ (c)
+B       .FILL x0001
+        .END
+```
+
+The program uses only `R0` and `R1`. Note that lines (a) and (b) indicate two missing instructions, and that line (c) includes some missing digits.
+
+Note also that one of the instructions **in the program** must be labeled `AGAIN`, but now the label is missing.
+
+After execution of the program, the contents of `A` is x1800. In total, 9 instructions are executed.
+
+During execution, some snapshots of the computer is taken at some clock cycles. The table below is ordered by the cycle number in which the snapshot is taken. Note that we doesn't say anything about how many clock cycles a memory access takes.
+
+<img src="./hw6/hw6-10.png" width="95%" />
+
+Fill in the missing instructions in the program, and complete the program by labeling the appropriate instruction as `AGAIN`. Also, fill in the missing information in the table and answer the following questions.
+
+1. How many clock cycles does a memory access take? (We define the clock cycles of a memory access as the cycles during which the computer stays at a state that does either `MDR<−M[MAR]` or `M[MAR]<-MDR`)
+2. Given values for `A` and `B`, what does the program do?
+
+> Hint: You may refer to Figure C.2, Figure C.3 and Table C.1 in the textbook. How signal LD.XX is used can be found in section 4.3.4.
