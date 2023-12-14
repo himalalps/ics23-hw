@@ -2,6 +2,8 @@
 
 ## T1
 
+Two students wrote interrupt service routines for an assignment. Both service routines did exactly the same work, but the first student accidentally used `RET` at the end of his routine, while the second student correctly used `RTI`. There are three errors that arose in the first student’s program due to his mistake. Describe any two of them.
+
 ## T2
 
 ## T3
