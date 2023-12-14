@@ -40,6 +40,27 @@ Can you tell what signal `X` is? When will `X` be set to 1?
 
 ## T4
 
+The following program is supposed to print the number 5 on the screen. It does not work. Why? Answer in no more than 50 characters, please.
+
+```assembly
+.ORIG x3000
+      JSR    A
+      OUT              ;TRAP x21
+      BRnzp  DONE
+A     AND    R0,R0,#0
+      ADD    R0,R0,#5
+			JSR B
+			RET
+DONE HALT
+ASCII .FILL  x0030
+B     LD     R1,ASCII
+      ADD    R0,R0,R1
+			RET
+			.END
+```
+
+
+
 ## T5
 
 Here's a subroutine that takes 4 chars in hex from keyboard and store the value they represent in `R0` using polling technique. Note that it assumes all possible input characters are in `0123456789ABCDEF`. Some comments have been deleted.
@@ -124,6 +145,25 @@ SYMBOL  .FILL #33
 3. Which one of the two problems mentioned above is more likely to occur? Justify your answer.
 
 ## T8
+
+The following nonsense program is assembled and executed.
+
+```assembly
+        .ORIG x4000
+        LD R2,BOBO
+        LD R3,SAM
+AGAIN   ADD R3,R3,R2
+        ADD R2,R2,#-1
+        BRnzp SAM
+BOBO    .STRINGZ "who cares you"
+SAM     BRnp AGAIN
+TRAP x25
+        .BLKW 5
+JOE     .FILL x7777
+.END
+```
+
+How many times is the loop executed? When the program halts, what is the value in R3? (If you do not want to the arithmetic, it is okay to answer this with a mathematical expression.)
 
 ## T9
 

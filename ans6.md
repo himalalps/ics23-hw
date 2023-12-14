@@ -23,6 +23,8 @@ $X=PSR[15]\ (\overline{MAR[15]}\ \overline{MAR[14]}\ \overline{MAR[13]}+\overlin
 
 ## A4
 
+本题中出现了两次连续的RET，由于在第一次JSR时未保存现场(R7)，故在进行第二次JSR时导致R7被覆盖，第二次RET将会跳转到错误的位置。
+
 ## A5
 
 1. `WAIT`, `LETTER`, `CONTINUE`, `GETCHAR`, `-65`, `17`
@@ -91,6 +93,8 @@ SAVE_R4 .BLKW 1
 3. The first scenario is more likely to happen, because CPU is much faster than human input.
 
 ## A8
+
+首先，字符串"who cares you"长度为`13 ( 12 + 1 )`。BRnp AGAIN二进制表示为`0000 101 #-17 = 0000 101 1 1110 1111`，故程序执行LD后R3内保存`x0BEF`，R2保存`w`的ASCII码`x77`。故循环将会执行总共`x77 = 119`次。最终R3的值将会是`x0BEF + (x77 + x1) * x77 / x2 = x0BEF + x1BE4 = 0x27D3`
 
 ## A9
 
