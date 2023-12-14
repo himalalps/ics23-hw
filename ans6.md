@@ -10,6 +10,9 @@
 
 ## A2
 
+1. 想打印的是字符 `I`，因为如果不考虑实际跳转，逻辑上在 `OUT` 前 `R0` 中保存的是 x0049，对应 ASCII 码表中的字符 `I`
+2. 但实际上什么也不会输出，因为调用了一次 `JSR` 后再次调用 `JSR` 时没有保存原本的返回地址 `R7`，因此返回地址已经被覆盖，因而从 `B` 中回到 `A` 中再次执行 `RET` 会在 `A` 中出现死循环，无法真正执行到 `OUT`
+
 ## A3
 
 ## A4
@@ -73,7 +76,7 @@ SAVE_R4 .BLKW 1
 ## A6
 
 1. `H3ll0_W0r1d!`
-2. $18*2=36$ bytes. (Each instruction takes 2 bytes; don't forget the `\0` at the end of the string.)
+2. $18\times2=36$ bytes. (Each instruction takes 2 bytes; don't forget the `\0` at the end of the string.)
 
 ## A7
 

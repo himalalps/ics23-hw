@@ -6,13 +6,35 @@ Two students wrote interrupt service routines for an assignment. Both service ro
 
 ## T2
 
+After learning the instruction `JSR`, a student wrote the following program to print a character to the console.
+
+```assembly
+        .ORIG x3000
+        JSR A
+        OUT
+        BRnzp DONE
+A       AND R0, R0, #0
+        ADD R0, R0, #9
+        JSR B
+        RET
+DONE    HALT
+ASCII   .FILL x0040
+B       LD R1, ASCII
+        ADD R0, R0, R1
+        RET
+        .END
+```
+
+1. What does the student intend to print?
+2. Will the program print the character? Can you explain why?
+
 ## T3
 
 ## T4
 
 ## T5
 
-Here's a subroutine that takes 4 chars in hex from keyboard and store the value they represent in R0 using polling technique. Note that it assumes all possible input characters are 0123456789ABCDEF.
+Here's a subroutine that takes 4 chars in hex from keyboard and store the value they represent in `R0` using polling technique. Note that it assumes all possible input characters are in `0123456789ABCDEF`. Some comments have been deleted.
 
 ```assembly
 HEX_INPUT
@@ -65,7 +87,7 @@ SAVE_R4 .BLKW 1
 Your jobs:
 
 1. Fill in the blanks (denoted by underlines `_`) to complete the program.
-2. Briefly explain what does the four consecutive `ADD R0, R0, R0` do.
+2. Briefly explain what the four consecutive `ADD R0, R0, R0` do.
 3. We have no idea what `R0` stores before the subroutine is called, so we placed the instruction `AND R0, R0, #0` before the label `GETCHAR` in order to clear `R0`. Is this instruction necessary? Why or why not?
 
 ## T6
