@@ -66,6 +66,9 @@ SAVE_R4 .BLKW 1
 
 ## A6
 
+1. `H3ll0_W0r1d!`
+2. $18*2=36$ bytes. (Each instruction takes 2 bytes; don't forget the `\0` at the end of the string.)
+
 ## A7
 
 1. It might reads an input character more than once.

@@ -68,6 +68,23 @@ Your jobs:
 
 ## T6
 
+The following program needs to be assembled and stored in LC-3 memory:
+
+```assembly
+.ORIG x3000
+    LEA R0, STRING
+    PUTS
+    LD R0, SYMBOL
+    OUT
+    HALT
+STRING  .STRINGZ "H3ll0_W0r1d"
+SYMBOL  .FILL #33
+.END
+```
+
+1. What is the output of the program?
+2. How many bytes of memory does the program occupy?
+
 ## T7
 
 1. What problem might arise if a program does not check `KBSR` before *reading* `KBDR`?
