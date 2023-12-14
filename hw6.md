@@ -30,6 +30,14 @@ B       LD R1, ASCII
 
 ## T3
 
+The LC-3 contains the following logic.
+
+![](./hw6/hw6-3.png)
+
+Can you tell what signal `X` is? When will `X` be set to 1?
+
+> Hint: You may refer to Figure C.2 in the textbook.
+
 ## T4
 
 ## T5

@@ -15,6 +15,12 @@
 
 ## A3
 
+根据逻辑写出表达式，以下简记 $XY$ 表示 X AND Y，$X+Y$ 表示 X OR Y，$\overline{X}$ 表示 NOT X，$X[N]$ 表示 X 的第 N 位
+
+$X=PSR[15]\ (\overline{MAR[15]}\ \overline{MAR[14]}\ \overline{MAR[13]}+\overline{MAR[15]}\ \overline{MAR[14]}\ \overline{MAR[12]}+MAR[15]MAR[14]MAR[13]MAR[12]MAR[11]MAR[10]MAR[9])$
+
+判断当 `PSR` 的最高位为 1 时 (此时位于用户模式)，且当 `MAR` 的值处于 [x0000,x3000)$\bigcup$[xFE00,xFFFF] 时 (此时 `MAR` 位于特权内存区)，`X` 为 1，否则为 0. 由 Figure C.2 中所述，`X` 为信号 `ACV`.
+
 ## A4
 
 ## A5
