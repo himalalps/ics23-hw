@@ -167,6 +167,25 @@ How many times is the loop executed? When the program halts, what is the value i
 
 ## T9
 
+The following LC-3 program is assembled and then executed. There are no assemble time or run-time errors. What is the output of this program? Assume all registers are initialized to 0 before the program executes.
+
+```assembly
+				.ORIG x3000
+				ADD R0, R0, #41
+				AND R1, R0, #40
+				ST R0, #7
+				ST R1, #5
+        ST R2, #6
+				LEA R0, LABEL
+				TRAP x22
+				TRAP x25
+LABEL		.STRINGZ "FUNKY"
+LABEL2  .STRINGZ "HELLO WORLD"
+				.END
+```
+
+
+
 ## T10
 
 Consider the following program:
