@@ -23,7 +23,27 @@ $X=PSR[15]\ (\overline{MAR[15]}\ \overline{MAR[14]}\ \overline{MAR[13]}+\overlin
 
 ## A4
 
-本题中出现了两次连续的RET，由于在第一次JSR时未保存现场(R7)，故在进行第二次JSR时导致R7被覆盖，第二次RET将会跳转到错误的位置。
+1. KBSR最高位为1
+
+2. 读取KBDR，并清除KBSR最高位
+
+3. 当DSR最高位为1的时候，写入DDR
+
+4. ```assembly
+   .ORIG x3000
+   START LDI		R1, KBSR
+   			BRzp	START
+   			LDI		R0, KBDR
+   ECHO	LDI		R1, DSR
+   			BRzp	ECHO
+   			STI		R0, DDR
+   			TRAP x25
+   KBSR	.FILL	xFE00
+   KBDR	.FILL xFE02
+   DSR		.FILL	xFE04
+   DDR		.FILL	xFE06
+   .END
+   ```
 
 ## A5
 

@@ -40,26 +40,12 @@ Can you tell what signal `X` is? When will `X` be set to 1?
 
 ## T4
 
-The following program is supposed to print the number 5 on the screen. It does not work. Why? Answer in no more than 50 characters, please.
+Imagine you are writing a simple LC-3 program that is designed to receive a character from the keyboard and then display that character on the screen. Please answer the following questions and provide the corresponding LC-3 assembly code snippet to achieve this functionality.
 
-```assembly
-.ORIG x3000
-      JSR    A
-      OUT              ;TRAP x21
-      BRnzp  DONE
-A     AND    R0,R0,#0
-      ADD    R0,R0,#5
-			JSR B
-			RET
-DONE HALT
-ASCII .FILL  x0030
-B     LD     R1,ASCII
-      ADD    R0,R0,R1
-			RET
-			.END
-```
-
-
+1. How do you check in LC-3 if there is a new character input from the keyboard? 
+2. Once a new character input is detected, how do you read this character from the keyboard? 
+3. How do you display the read character on the screen?
+4. Provide a simple LC-3 assembly code snippet that demonstrates this process.
 
 ## T5
 
