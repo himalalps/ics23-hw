@@ -2,18 +2,24 @@
 
 ## A1
 
+前两行程序先将 `TEXT` 和 `TEST` 处内存值存到 `R2` 和 `R3` 中，`TEXT` 处值显然为 `A` 的 ASCII 码 `x41`，但 `TEST` 处值需要考虑 `BR` 跳转值，而这又需要考虑到字符串 "An LC-3 program" 的长度为 16，因此 `TEST` 处指令为 `BRnp #-20`，对应十六进制 `x0BEC`.
+
+之后的循环依据 `R2` 值是否为 0 决定终止，每次循环将 `R2` 值减小 1，因而循环执行共 65 次。每次循环中将 `R3` 加上本次的 `R2` 值，因此最终值为 $BEC_H+(65_D+1_D)\times 65_D/2=144D_H$，也就是 `x144D` 或十进制 5197.
+
+## A2
+
 1. 因为是中断服务，所以 `R7` 中并不保存返回地址，而 `RET` 会跳转到 `R7` 保存的地址，因此在中断服务中直接使用 `RET` 会跳转到错误的位置
 
 2. 直接调用 `RET` 并没有恢复在中断服务中被保存下来的 Processor Status Register，因而并没有从特权模式恢复到用户模式，之前的状态码也没有被恢复
 
 3. `RET` 也不涉及对栈的操作，但从中断服务恢复，应该要恢复栈指针
 
-## A2
+## A3
 
 1. 想打印的是字符 `I`，因为如果不考虑实际跳转，逻辑上在 `OUT` 前 `R0` 中保存的是 x0049，对应 ASCII 码表中的字符 `I`
 2. 但实际上什么也不会输出，因为调用了一次 `JSR` 后再次调用 `JSR` 时没有保存原本的返回地址 `R7`，因此返回地址已经被覆盖，因而从 `B` 中回到 `A` 中再次执行 `RET` 会在 `A` 中出现死循环，无法真正执行到 `OUT`
 
-## A3
+## A4
 
 根据逻辑写出表达式，以下简记 $XY$ 表示 X AND Y，$X+Y$ 表示 X OR Y，$\overline{X}$ 表示 NOT X，$X[N]$ 表示 X 的第 N 位
 
@@ -21,31 +27,33 @@ $X=PSR[15]\ (\overline{MAR[15]}\ \overline{MAR[14]}\ \overline{MAR[13]}+\overlin
 
 判断当 `PSR` 的最高位为 1 时 (此时位于用户模式)，且当 `MAR` 的值处于 [x0000,x3000)$\bigcup$[xFE00,xFFFF] 时 (此时 `MAR` 位于特权内存区)，`X` 为 1，否则为 0. 由 Figure C.2 中所述，`X` 为信号 `ACV`.
 
-## A4
-
-1. KBSR最高位为1
-
-2. 读取KBDR，并清除KBSR最高位
-
-3. 当DSR最高位为1的时候，写入DDR
-
-4. ```assembly
-   .ORIG x3000
-   START LDI		R1, KBSR
-   			BRzp	START
-   			LDI		R0, KBDR
-   ECHO	LDI		R1, DSR
-   			BRzp	ECHO
-   			STI		R0, DDR
-   			TRAP x25
-   KBSR	.FILL	xFE00
-   KBDR	.FILL xFE02
-   DSR		.FILL	xFE04
-   DDR		.FILL	xFE06
-   .END
-   ```
-
 ## A5
+
+1. `KBSR` 最高位为1
+
+2. 读取 `KBDR`，并清除 `KBSR` 最高位
+
+3. 当 `DSR` 最高位为 1 的时候，写入 `DDR`
+
+4. 
+
+```assembly
+        .ORIG x3000
+GET     LDI R1, KBSR
+        BRzp GET
+        LDI R0, KBDR
+WAIT    LDI R1, DSR
+        BRzp WAIT
+        STI R0, DDR
+        TRAP x25
+KBSR    .FILL xFE00
+KBDR    .FILL xFE02
+DSR     .FILL xFE04
+DDR     .FILL xFE06
+        .END
+```
+
+## A6
 
 1. `WAIT`, `LETTER`, `CONTINUE`, `GETCHAR`, `-65`, `17`
 2. R0 << 4, so that we can add the next value to the result.
@@ -55,42 +63,43 @@ Full code:
 
 ```assembly
 HEX_INPUT
-    ST R1, SAVE_R1  ; R1 = Constant 1
-    ST R2, SAVE_R2  ; R2 = Constant 2
-    ST R3, SAVE_R3  ; R3 = Chars left (counter)
-    ST R4, SAVE_R4  ; R4 = Keyboard status / Current char / Value represented by char
-    LD R1, C1
-    LD R2, C2
-    AND R3, R3, #0
-    ADD R3, R3, #4
-    AND R0, R0, #0  ; R0 stores our result
+        ST R1, SAVE_R1  ; R1 = Constant 1
+        ST R2, SAVE_R2  ; R2 = Constant 2
+        ST R3, SAVE_R3  ; R3 = Chars left (counter)
+        ST R4, SAVE_R4  ; R4 = Keyboard status / Current char /
+                        ;  Value represented by char
+        LD R1, C1
+        LD R2, C2
+        AND R3, R3, #0
+        ADD R3, R3, #4
+        AND R0, R0, #0  ; R0 stores our result
 GETCHAR
-    ; R0 << 4
-    ADD R0, R0, R0
-    ADD R0, R0, R0
-    ADD R0, R0, R0
-    ADD R0, R0, R0
+        ; R0 << 4
+        ADD R0, R0, R0
+        ADD R0, R0, R0
+        ADD R0, R0, R0
+        ADD R0, R0, R0
 WAIT
-    LDI R4, KBSR    ; Check keyboard status
-    BRzp WAIT       ; KBSR[15] = 0, no char available, wait
-    LDI R4, KBDR    ; Get KBDR
-    ADD R4, R4, R1  ; Check if it is a letter
-    BRzp LETTER     ; Got a capital letter
-    ADD R4, R4, R2  ; Not a letter -> digit
-    BR CONTINUE
+        LDI R4, KBSR    ; Check keyboard status
+        BRzp WAIT       ; KBSR[15] = 0, no char available, wait
+        LDI R4, KBDR    ; Get KBDR
+        ADD R4, R4, R1  ; Check if it is a letter
+        BRzp LETTER     ; Got a capital letter
+        ADD R4, R4, R2  ; Not a letter -> digit
+        BR CONTINUE
 LETTER
-    ADD R4, R4, #10 ; Add 10 so that A -> 10
+        ADD R4, R4, #10 ; Add 10 so that A -> 10
 CONTINUE
-    ADD R0, R0, R4  ; Add to result
-    ADD R3, R3, #-1 ; Decr counter
-    BRp GETCHAR     ; Wait for another char
-    ; Restore regs
-    LD R1, SAVE_R1
-    LD R2, SAVE_R2
-    LD R3, SAVE_R3
-    LD R4, SAVE_R4
-    RET
-; Data
+        ADD R0, R0, R4  ; Add to result
+        ADD R3, R3, #-1 ; Decr counter
+        BRp GETCHAR     ; Wait for another char
+        ; Restore regs
+        LD R1, SAVE_R1
+        LD R2, SAVE_R2
+        LD R3, SAVE_R3
+        LD R4, SAVE_R4
+        RET
+        ; Data
 C1      .FILL #-65  ; -ord("A")
 C2      .FILL #17   ; ord("A") - ord("0")
 KBSR    .FILL xFE00
@@ -101,26 +110,20 @@ SAVE_R3 .BLKW 1
 SAVE_R4 .BLKW 1
 ```
 
-## A6
+## A7
 
 1. `H3ll0_W0r1d!`
 2. $18\times2=36$ bytes. (Each instruction takes 2 bytes; don't forget the `\0` at the end of the string.)
 
-## A7
+## A8
 
 1. It might reads an input character more than once.
 2. It might overwrite an input character before it is processed.
 3. The first scenario is more likely to happen, because CPU is much faster than human input.
 
-## A8
-
-首先，字符串"who cares you"长度为`13 ( 12 + 1 )`。BRnp AGAIN二进制表示为`0000 101 #-17 = 0000 101 1 1110 1111`，故程序执行LD后R3内保存`x0BEF`，R2保存`w`的ASCII码`x77`。故循环将会执行总共`x77 = 119`次。最终R3的值将会是`x0BEF + (x77 + x1) * x77 / x2 = x0BEF + x1BE4 = 0x27D3`
-
 ## A9
 
-输出`F !`
-
-（注意中间有个空格）
+输出为 `F !` (注意中间有个空格)
 
 ## A10
 
